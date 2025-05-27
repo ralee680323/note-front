@@ -82,10 +82,6 @@ describe('Notes Page', () => {
     const deleteButton = screen.getByLabelText('delete');
     fireEvent.click(deleteButton);
 
-    // Wait for and click the confirm delete button in the dialog
-    const confirmDeleteButton = await screen.findByText('Delete');
-    fireEvent.click(confirmDeleteButton);
-
     // Verify API call
     await waitFor(() => {
       expect(notes.delete).toHaveBeenCalledWith('1');
